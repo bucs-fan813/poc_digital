@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     $(function () {
         $("#text-rotator").typed({
-            strings: ["UX/UI Designer", "Developer", "Photographer"],
+            strings: ["Cloud", "Infrastructure", "Platform", "DEVOPS", "Integration", "Developer", "Engineer", "Designer"],
             typeSpeed: 100,
             loop: true,
             startDelay: 100
