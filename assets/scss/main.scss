@@ -1,0 +1,683 @@
+/*------------------------------------------------------------------
+
+    Main Style Stylesheet
+    Project:        MORISEN. |  FREE PORTFOLIO TEMPLATE
+    Version:        1.0
+    Author:         Bakhtrai Badr
+    Last change:    7/13/2018
+    Primary use:    Personal And Portfolio 
+
+-------------------------------------------------------------------*/
+
+/*=======================================================
+			IMPORTS:
+========================================================*/
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+/*=======================================================
+			MEDIA QUERIES:
+========================================================*/
+
+@media (max-width: 992px) {
+    #portfolio {
+        .container-fluid {
+            .portfolio-items {
+                .portfolio-item {
+                    .portfolio-box-caption-content {
+                        .project-category {
+                            font-size: 18px;
+                        }
+                        .project-name {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #home {
+        .hero-content {
+            .caption {
+                h1 {
+                    font-size: 3rem;
+                }
+                h3 {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    #about {
+        padding: 100px 0;
+        .container {
+            .col-md-5 {
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 504px) {
+    #home {
+        .hero-content {
+            .caption {
+                h1 {
+                    font-size: 2rem;
+                }
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+/*=======================================================
+			COLORS(Only visibile in scss file):
+========================================================*/
+
+$primary-color: #ff7a57;
+$secondary-color: #4e4e4e;
+$third-color: #5972a8;
+$secondary-bg: #f5f5f5;
+$text-dark: #3b3b3b;
+$text-white: #fff;
+
+/*=======================================================
+			BODY STYLE:
+========================================================*/
+
+body {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    color: $text-dark;
+}
+
+/*=======================================================
+			PRELOADER:
+========================================================*/
+
+.page-preloader {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $text-white;
+    z-index: 100000;
+}
+.loader {
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Monoton', cursive;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: $primary-color;
+    letter-spacing: 0.2em;
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        background: $primary-color;
+        position: absolute;
+        animation: load .7s infinite alternate ease-in-out;
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}
+
+@keyframes load {
+    0% {
+        left: 0;
+        height: 30px;
+        width: 15px
+    }
+    50% {
+        height: 8px;
+        width: 40px
+    }
+    100% {
+        left: 235px;
+        height: 30px;
+        width: 15px
+    }
+}
+
+/*=======================================================
+			BUTTONS:
+========================================================*/
+
+.btn-primary {
+    background: $primary-color;
+    color: text-white;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 15px 25px;
+    margin: 0.8rem;
+    border-radius: 100px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background: $secondary-color;
+    color: text-white;
+    border-color: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: $secondary-color;
+    color: text-white;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 15px 25px;
+    margin: 0.8rem;
+    border-radius: 100px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background: $primary-color;
+    color: text-white;
+    border-color: none;
+    box-shadow: none;
+}
+
+/*=======================================================
+			TYPOGRAPHY:
+========================================================*/
+
+h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0.8rem 0;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+h5 {
+    font-weight: 700;
+}
+
+.material-icons {
+    font-size: 3rem;
+}
+
+/*=======================================================
+			TYPED CURSOR:
+========================================================*/
+
+.typed-cursor {
+    padding: 10px 2px;
+    background: #ffffff;
+    margin: 10px;
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*=======================================================
+			NAVBAR
+========================================================*/
+
+.navbar {
+    padding: 1rem;
+    .navbar-brand {
+        font-family: 'Monoton', cursive;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: $text-white;
+        span {
+            color: $primary-color;
+        }
+    }
+    .navbar-nav .nav-link {
+        font-weight: 600;
+        color: $text-white;
+        padding: 0 0.8rem;
+        transition: all .2s ease-in-out;
+    }
+    .navbar-nav .nav-link:hover {
+        color: $primary-color;
+    }
+    .navbar-nav .nav-link.active {
+        color: $primary-color;
+    }
+    .navbar-nav .active > .nav-link {
+        color: $primary-color;
+    }
+    .navbar-toggler {
+        border: none;
+        i {
+            font-size: 2.5rem;
+            color: $text-white;
+        }
+    }
+    .navbar-toggler:focus,
+    .navbar-toggler:hover {
+        border: none;
+        outline: 0;
+    }
+}
+
+.navbar-light {
+    background: $text-white;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: all .2s ease-in-out;
+    .navbar-brand {
+        color: $text-dark;
+    }
+    .navbar-brand:hover {
+        color: $text-dark;
+    }
+    .navbar-nav .nav-link {
+        color: $text-dark;
+    }
+    .navbar-nav .nav-link.active {
+        color: $primary-color;
+    }
+    .navbar-toggler {
+        border: none;
+        i {
+            font-size: 2.5rem;
+            color: $text-dark;
+        }
+    }
+    .navbar-toggler:focus,
+    .navbar-toggler:hover {
+        border: none;
+        outline: 0;
+    }
+}
+
+
+/*=======================================================
+			HERO
+========================================================*/
+
+#home {
+    background-image: url(../img/Hero.jpg);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    .hero-content {
+        display: table;
+        height: 100%;
+        width: 100%;
+        color: $text-white;
+        text-align: center;
+        .caption {
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+            height: 100%;
+            h1 {
+                font-family: 'Monoton', cursive;
+                text-transform: uppercase;
+                font-weight: 400;
+                span {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+/*=======================================================
+			ABOUT
+========================================================*/
+
+#about {
+    padding-top: 100px;
+    img {
+        height: 550px;
+    }
+    p {
+        margin: 20px 0;
+    }
+    .skills {
+        h6 {
+            font-weight: 700;
+        }
+        .progress {
+            overflow: visible;
+            height: 5px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            margin: 20px 0;
+            .progress-bar {
+                position: relative;
+                background: $primary-color;
+                span {
+                    position: absolute;
+                    display: block;
+                    top: -35px;
+                    right: 0;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: $text-dark;
+                }
+            }
+        }
+    }
+    ul {
+        li {
+            display: inline-block;
+            margin: 0 20px 0 0;
+            a {
+                color: $text-dark;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
+/*=======================================================
+			SERVICES
+========================================================*/
+
+#services {
+    background: $secondary-bg;
+    padding: 100px 0;
+    text-align: center;
+    .service-box {
+        background: $text-white;
+        border-radius: 5px;
+        box-shadow: 0 3px 15px rgba(76, 76, 77, 0.15);
+        padding: 25px 20px;
+        margin: 25px 0;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        h4 {
+            margin: 10px 0;
+        }
+    }
+    .service-box:hover {
+        background: $primary-color;
+        color: $text-white;
+    }
+}
+
+/*=======================================================
+			PORTFOLIO
+========================================================*/
+
+#portfolio {
+    padding: 100px 0;
+    text-align: center;
+    .portfolio-filtres {
+        margin: 50px auto;
+        li {
+            display: inline-block;
+            margin: 0 25px;
+            a {
+                font-weight: 700;
+                transition: all .2s ease-in-out;
+                cursor: pointer;
+            }
+            a:hover,
+            a:focus,
+            a:active {
+                color: $primary-color;
+            }
+            .active {
+                color: $primary-color;
+            }
+        }
+    } // Portfolio Items
+    #Container .mix {
+        display: none;
+    }
+    .portfolio-item {
+        margin: 20px 0;
+    }
+    .portfolio-box {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        .portfolio-box-caption {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: $text-white;
+            opacity: 0;
+            background: rgba(255, 122, 87, 0.8);
+            transition: all .2s ease-in-out;
+            .portfolio-box-caption-content {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                transform: translateY(-50%);
+                .project-category {
+                    font-size: 24px;
+                    letter-spacing: 0.1em;
+                    font-weight: 700;
+                    margin-bottom: 20px;
+                }
+                .project-name {
+                    font-size: 14px;
+                    letter-spacing: 0.1em;
+                }
+            }
+        }
+    }
+    .portfolio-box:hover .portfolio-box-caption {
+        opacity: 1;
+    }
+}
+
+/*=======================================================
+			TESTIMONIALS 
+========================================================*/
+
+#testimonials {
+    background: $secondary-bg;
+    padding: 100px 0;
+    text-align: center;
+    .owl-carousel {
+        .item {
+            background: $text-white;
+            box-shadow: 0 3px 15px rgba(76, 76, 77, 0.15);
+            padding: 25px 15px;
+            margin: 25px 15px;
+            transition: all .2s ease-in-out;
+            img {
+                height: 100px;
+                box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            }
+            p {
+                margin: 15px 0;
+            }
+            i {
+                font-size: 1.5rem;
+            }
+        }
+        .item:hover {
+            background: $primary-color;
+            color: $text-white;
+        }
+    }
+}
+
+/*=======================================================
+			BLOG 
+========================================================*/
+
+#blog {
+    padding: 100px 0;
+    h2 {
+        text-align: center;
+    }
+    .blog-post {
+        box-shadow: 0 3px 15px rgba(76, 76, 77, 0.15);
+        margin: 25px 0;
+        .post-content {
+            padding: 25px 15px;
+        }
+        ul {
+            margin: 15px 0;
+            li {
+                display: inline-block;
+                margin-right: 10px;
+                i {
+                    font-size: 1.5rem;
+                }
+                span {
+                    position: relative;
+                    bottom: 8px;
+                    margin-left: 5px;
+                }
+            }
+        }
+        .btn {
+            margin: 10px 0;
+        }
+    }
+}
+
+/*=======================================================
+			CALL TO ACTION 
+========================================================*/
+
+#call-to-action {
+    background-image: url(../img/call-to-action.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 60px 0;
+    .cta-content {
+        color: $text-white;
+        p {
+            margin: 20px 0;
+        }
+        .btn {
+            margin: 0;
+        }
+    }
+
+}
+
+/*=======================================================
+			CONTACT
+========================================================*/
+
+#contact {
+    padding: 100px 0;
+    text-align: center;
+    .btn {
+        margin: 0;
+    }
+    .form-group {
+        margin: 25px 0;
+        .form-control {
+            border: none;
+            border-bottom: 1px solid $text-dark;
+            border-radius: 0;
+        }
+        .form-control:focus {
+            border-bottom: 2px solid $primary-color;
+            box-shadow: none;
+        }
+    }
+}
+
+/*=======================================================
+			FOOTER
+========================================================*/
+
+footer {
+    background: $text-dark;
+    color: $text-white;
+    text-align: center;
+    padding: 40px 0;
+    p {
+        margin: 0;
+    }
+}
