@@ -535,6 +535,19 @@ h5 {
     margin: 20px 0;
 }
 
+#partners .portfolio-item a img {
+    max-width: 250px;
+    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+    filter: gray; /* IE5+ */
+    -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .8s ease-in-out;  
+}
+
+#partners .portfolio-item a img:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+      -webkit-transform: scale(1.01);
+}
 #partners .portfolio-box {
     display: block;
     position: relative;
@@ -577,7 +590,7 @@ h5 {
 }
 
 #partners .portfolio-box:hover .portfolio-box-caption {
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 /*=======================================================
