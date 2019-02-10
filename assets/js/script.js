@@ -117,9 +117,10 @@ $(document).ready(function () {
     	  var form_email       = $("input#email").val();
     	  var form_subject  = $("input#subject").val();
     	  var form_message     = 'Name: ' + form_name + '\n';
-    	  form_message .= 'Email: ' + form_email + '\n';
-    	  form_message .= 'Message: ' + $("textarea:first").val();
+    	  form_message += 'Email: ' + form_email + '\n';
+    	  form_message += 'Message: ' + $("textarea:first").val();
 
+    	  var data = {
     		name	: form_name,
     	    from   : form_email, 
     	    subject : form_subject,
