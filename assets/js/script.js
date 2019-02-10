@@ -112,26 +112,39 @@ $(document).ready(function () {
 
     $("form:first").submit(function() {
     	  console.log('test');
-    	  var sendgridjs_url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
-    	  var sendgridjs_to       = $("input#to").val();
-    	  var sendgridjs_subject  = $("input#subject").val();
-    	  var sendgridjs_html     = "<p>html of email here as a string</p>";
+    	  var url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
+    	  var sns_name       = $("input#name").val();
+    	  var sns_from       = $("input#email").val();
+    	  var sns_subject  = $("input#subject").val();
+    	  var sns_message     = $("textarea:first").val();
 
-    	  var email = {
-    	    toEmails      : [sendgridjs_to], 
-    	    subject : sendgridjs_subject,
-    	    html    : sendgridjs_html,
-    	    fromEmail : 'john@pocdigital.org'
+    	  var data = {
+    		name	: sns_name,
+    	    email   : sns_from, 
+    	    subject : sns_subject,
+    	    desc    : sns_message
     	  }
-    	  
-    	  $.post(sendgridjs_url, email, function(response) {
-    		    if (response.success) {
-    		    	console.log('worked');
-    		      // redirect somewhere or something. up to you. the email was sent successfully.
-    		    } else {
-    		      alert(response.error.message);
-    		    }
-    		  });
+	    	console.log(data);
+
+    	  $.ajax({
+    	         type: "POST",
+    	         url : url,
+    	         dataType: "json",
+    	         crossDomain: "true",
+    	         contentType: "application/json; charset=utf-8",
+    	         data: JSON.stringify(data),
+
+    	         
+    	         success: function () {
+    	           // clear form and show a success message
+    	           alert("Successfull");
+    	          // document.getElementById("contact-form").reset();
+    	       //location.reload();
+    	         },
+    	         error: function () {
+    	           // show an error message
+    	           alert("UnSuccessfull");
+    	         }});
 
     		  return false;
     });    
