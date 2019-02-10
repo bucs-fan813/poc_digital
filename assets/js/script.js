@@ -113,18 +113,18 @@ $(document).ready(function () {
     $("form:first").submit(function() {
     	  console.log('test');
     	  var url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
-    	  var sns_name       = $("input#name").val();
-    	  var sns_from       = $("input#email").val();
-    	  var sns_subject  = $("input#subject").val();
-    	  var sns_message     = $("textarea:first").val();
+    	  var form_name       = $("input#name").val();
+    	  var form_email       = $("input#email").val();
+    	  var form_subject  = $("input#subject").val();
+    	  var form_message     = 'Name: ' + form_name + '\n';
+    	  form_message .= 'Email: ' + form_email + '\n';
+    	  form_message .= 'Message: ' + $("textarea:first").val();
 
-    	  var data = {
-    		name	: sns_name,
-    	    from   : sns_from, 
-    	    subject : sns_subject,
-    	    message    : sns_message
+    		name	: form_name,
+    	    from   : form_email, 
+    	    subject : form_subject,
+    	    message    : form_message
     	  }
-	    	console.log(data);
 
     	  $.ajax({
     	         type: "POST",
