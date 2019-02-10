@@ -138,13 +138,13 @@ $(document).ready(function () {
     	         
     	         success: function () {
     	           // clear form and show a success message
-    	           alert("Successfull");
+    	           alert("Successful");
     	          // document.getElementById("contact-form").reset();
-    	       //location.reload();
+    	           location.reload();
     	         },
     	         error: function () {
     	           // show an error message
-    	           alert("UnSuccessfull");
+    	           alert("Unsuccessful");
     	         }});
 
     		  return false;
