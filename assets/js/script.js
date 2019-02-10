@@ -105,5 +105,35 @@ $(document).ready(function () {
         itemsDesktopSmall: [979, 3]
 
     });
+    
+    /*=======================================================
+			Contact Form
+	========================================================*/
+
+    $("form:first").submit(function() {
+    	  console.log('test');
+    	  var sendgridjs_url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
+    	  var sendgridjs_to       = $("input#to").val();
+    	  var sendgridjs_subject  = $("input#subject").val();
+    	  var sendgridjs_html     = "<p>html of email here as a string</p>";
+
+    	  var email = {
+    	    toEmails      : [sendgridjs_to], 
+    	    subject : sendgridjs_subject,
+    	    html    : sendgridjs_html,
+    	    fromEmail : 'john@pocdigital.org'
+    	  }
+    	  
+    	  $.post(sendgridjs_url, email, function(response) {
+    		    if (response.success) {
+    		    	console.log('worked');
+    		      // redirect somewhere or something. up to you. the email was sent successfully.
+    		    } else {
+    		      alert(response.error.message);
+    		    }
+    		  });
+
+    		  return false;
+    });    
 
 });
