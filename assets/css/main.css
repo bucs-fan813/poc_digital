@@ -754,3 +754,7 @@ footer p {
 footer a {
     color: #fff;
 }
+
+footer span {
+    color: #54a3ff; /*highlight*/
+}
