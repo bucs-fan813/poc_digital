@@ -120,9 +120,9 @@ $(document).ready(function () {
 
     	  var data = {
     		name	: sns_name,
-    	    email   : sns_from, 
+    	    toEmails   : [sns_from], 
     	    subject : sns_subject,
-    	    desc    : sns_message
+    	    message    : sns_message
     	  }
 	    	console.log(data);
 
