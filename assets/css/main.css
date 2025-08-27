@@ -758,3 +758,15 @@ footer a {
 footer span {
     color: #54a3ff; /*highlight*/
 }
+
+a.hover-text {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    text-decoration-line: underline;
+    text-decoration-color: #54a3ff;
+}
+
+a.hover-text:hover {
+    text-decoration-style: double;
+}
