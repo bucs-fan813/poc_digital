@@ -12,7 +12,7 @@ No application server, database, package installation, or build step is required
 - `assets/css/main.css`: stylesheet currently served by the site.
 - `assets/js/script.js`: page interactions and contact form submission.
 - `assets/img/`: images.
-- `assets/bootstrap-4.1.1-dist/` and `assets/js/plugins/`: vendored browser libraries.
+- Third-party browser libraries load from Cloudflare cdnjs; no bundled library copies are required.
 - `assets/scss/main.scss`: original template stylesheet source. It differs from the live CSS; there is no configured Sass build. Edit the live CSS for current styling changes.
 - Root icons, `site.webmanifest`, and `browserconfig.xml`: browser and device icons.
 - `.assetsignore`: excludes documentation and development files from static asset uploads.
@@ -72,3 +72,11 @@ Never add AWS credentials, SMTP passwords, or reCAPTCHA secrets to browser code.
 5. Test contact form delivery independently; a successfully loaded page does not establish that email delivery works.
 
 There is no automated test suite or asset compilation pipeline. Retain notices in third-party library files. Historical Heroku deployment configuration and unused template assets have been removed; Git history retains them.
+
+## CDN dependencies
+
+Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Popper, Bootstrap and plugins, then script.js.
+
+When changing a CDN version or file, update its integrity hash to match the exact response bytes and test page interactions. Lightbox images and Font Awesome fonts resolve relative to their CDN stylesheets. Google fonts, Analytics, and reCAPTCHA remain external services.
+
+Versions: Bootstrap 4.1.1, jQuery 1.11.3, Popper 1.14.3, jQuery Easing 1.3, Typed.js 1.1.7 (legacy jQuery API), MixItUp 2.1.11, Owl Carousel 1.3.3, Lightbox2 2.8.2, Font Awesome 5.7.1. This migration preserves legacy APIs rather than upgrading major versions.
