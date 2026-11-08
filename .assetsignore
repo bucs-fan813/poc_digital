@@ -7,3 +7,4 @@ wrangler.json
 wrangler.jsonc
 wrangler.toml
 node_modules/
+docs/

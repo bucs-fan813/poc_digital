@@ -71,12 +71,14 @@ Never add AWS credentials, SMTP passwords, or reCAPTCHA secrets to browser code.
 4. Confirm the Cloudflare deployment succeeds and test both domain addresses.
 5. Test contact form delivery independently; a successfully loaded page does not establish that email delivery works.
 
-There is no automated test suite or asset compilation pipeline. Retain notices in third-party library files. Historical Heroku deployment configuration and unused template assets have been removed; Git history retains them.
+There is no repository-managed automated test suite or asset compilation pipeline. The library upgrade was checked with an external browser harness; results are recorded in docs/UPGRADE_VALIDATION.md. Retain notices in third-party library files. Historical Heroku deployment configuration and unused template assets have been removed; Git history retains them.
 
 ## CDN dependencies
 
-Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Popper, Bootstrap and plugins, then script.js.
+Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Popper, Bootstrap and remaining plugins, then script.js.
 
 When changing a CDN version or file, update its integrity hash to match the exact response bytes and test page interactions. Lightbox images and Font Awesome fonts resolve relative to their CDN stylesheets. Google fonts, Analytics, and reCAPTCHA remain external services.
 
-Versions: Bootstrap 4.1.1, jQuery 1.11.3, Popper 1.14.3, jQuery Easing 1.3, Typed.js 1.1.7 (legacy jQuery API), MixItUp 2.1.11, Owl Carousel 1.3.3, Lightbox2 2.8.2, Font Awesome 5.7.1. This migration preserves legacy APIs rather than upgrading major versions.
+Versions: Bootstrap 4.6.2, jQuery 3.7.1 (full build), Popper 1.16.1, jQuery Easing 1.4.1, Typed.js 2.1.0, Lightbox2 2.12.0, Font Awesome 5.15.4. Owl Carousel was unused and removed; partner filtering now uses a small function in script.js instead of MixItUp.
+
+Bootstrap 4.6.2 is the final Bootstrap 4 release and is end of life. Bootstrap 5 is a separate markup and layout migration, not a drop-in dependency bump. jQuery stays on 3.x for Bootstrap 4 compatibility, Font Awesome stays on 5.x to preserve the current icon classes, and Typed.js uses the MIT-licensed 2.1.0 release with its constructor API. See docs/UPGRADE_VALIDATION.md for verification and remaining limits.

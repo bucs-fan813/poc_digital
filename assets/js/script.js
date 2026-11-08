@@ -6,23 +6,28 @@ $(document).ready(function () {
 			PRELOADER
     ========================================================*/
 
-    $(window).load(function () { // makes sure the whole site is loaded
-        $('.page-preloader loader').fadeOut(); // will first fade out the loading animation
+    function finishLoading() { // makes sure the whole site is loaded
+        $('.page-preloader .loader').fadeOut(); // will first fade out the loading animation
         $('.page-preloader').delay(350).fadeOut('slow');
         // will fade out the white DIV that covers the website.
         $('body').delay(350).css({
             'overflow': 'visible'
         });
-    })
+    }
+    if (document.readyState === 'complete') {
+        finishLoading();
+    } else {
+        $(window).one('load', finishLoading);
+    }
 
     /*=======================================================
-			FULL SCREEN BANNER
+            FULL SCREEN BANNER
     ========================================================*/
 
     var slideHeight = $(window).height();
     $('.full-screen').css('height', slideHeight);
     $(window).resize(function () {
-        $('.full-screen').css('height', slideHeight);
+        $('.full-screen').css('height', $(window).height());
     });
 
 
@@ -31,7 +36,7 @@ $(document).ready(function () {
     ========================================================*/
 
     $(function () {
-        $("#text-rotator").typed({
+        new Typed("#text-rotator", {
             strings: ["Cloud Specialists", "Developers", "DEVOPS", "Staff Augmentation Experts", "Migration Experts", "Security Specialists"],
             typeSpeed: 100,
             loop: true,
@@ -48,7 +53,7 @@ $(document).ready(function () {
     })
 
     $(function () {
-        $('a.page-scroll').bind('click', function (event) {
+        $('a.page-scroll').on('click', function (event) {
             var $anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top
@@ -73,45 +78,27 @@ $(document).ready(function () {
     });
 
     /*=======================================================
-			PORTFOLIO MIXITUP
-    ========================================================*/
-    $(window).load(function () {
-        $('#Container').mixItUp({
-            animation: {
-                effects: 'fade'
-            }
-        });
-
-        // Active Stat
-        var $portfolio_selectors = $('.portfolio-filters >li>a');
-        $portfolio_selectors.on('click', function () {
-            $portfolio_selectors.removeClass('active');
-            $(this).addClass('active');
-            var selector = $(this).attr('data-filter');
-            return false;
-        });
-    });
-
-    /*=======================================================
-			PORTFOLIO MIXITUP
+            PARTNER FILTERS
     ========================================================*/
 
-    $("#owl-testimonials").owlCarousel({
-
-        autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-        items: 3,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3]
-
+    var $partnerItems = $('#Container .mix');
+    var $partnerFilters = $('#partners .portfolio-filtres .filter');
+    $partnerItems.css('display', 'inline-block');
+    $partnerFilters.on('click', function (event) {
+        event.preventDefault();
+        var filter = $(this).attr('data-filter');
+        $partnerFilters.removeClass('active');
+        $(this).addClass('active');
+        $partnerItems.stop(true, true).hide().filter(function () {
+            return filter === 'all' || $(this).is(filter);
+        }).css('display', 'inline-block').hide().fadeIn(300);
     });
-    
+
     /*=======================================================
 			Contact Form
 	========================================================*/
 
     $("form:first").submit(function() {
-    	  console.log('test');
     	  var url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
     	  var form_name       = $("input#name").val();
     	  var form_email       = $("input#email").val();
@@ -131,7 +118,7 @@ $(document).ready(function () {
     	         type: "POST",
     	         url : url,
     	         dataType: "json",
-    	         crossDomain: "true",
+                 crossDomain: true,
     	         contentType: "application/json; charset=utf-8",
     	         data: JSON.stringify(data),
 
