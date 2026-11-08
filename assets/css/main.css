@@ -162,7 +162,7 @@ body {
 
 .btn-primary {
     background: #54a3ff;
-    color: text-white;
+    color: #fff;
     letter-spacing: 0.1em;
     font-weight: 700;
     font-size: 14px;
@@ -180,7 +180,7 @@ body {
 .btn-primary:focus,
 .btn-primary:active {
     background: #4e4e4e;
-    color: text-white;
+    color: #fff;
     border-color: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -188,7 +188,7 @@ body {
 
 .btn-secondary {
     background: #4e4e4e;
-    color: text-white;
+    color: #fff;
     letter-spacing: 0.1em;
     font-weight: 700;
     font-size: 14px;
@@ -206,7 +206,7 @@ body {
 .btn-secondary:focus,
 .btn-secondary:active {
     background: #54a3ff;
-    color: text-white;
+    color: #fff;
     border-color: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -715,17 +715,17 @@ h5 {
     margin: 0;
 }
 
-#contact .form-group {
+#contact .contact-field {
     margin: 25px 0;
 }
 
-#contact .form-group .form-control {
+#contact .contact-field .form-control {
     border: none;
     border-bottom: 1px solid #3b3b3b;
     border-radius: 0;
 }
 
-#contact .form-group .form-control:focus {
+#contact .contact-field .form-control:focus {
     border-bottom: 2px solid #54a3ff;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -769,4 +769,71 @@ a.hover-text {
 
 a.hover-text:hover {
     text-decoration-style: double;
+}
+/* Bootstrap 5 compatibility: retain the existing spacing and typography. */
+:root {
+    --bs-link-color: #007bff;
+    --bs-link-hover-color: #0056b3;
+}
+
+.container, .container-fluid, .row {
+    --bs-gutter-x: 30px;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navbar {
+    --bs-navbar-brand-padding-y: 0.3125rem;
+}
+
+.navbar .container {
+    flex-wrap: wrap;
+}
+
+#partners .portfolio-item {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#contact input.form-control {
+    min-height: 38px;
+}
+
+#contact .form-control {
+    color: #495057;
+}
+
+#contact .form-control::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+    .navbar > .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+footer .d-flex > div {
+    width: 25%;
+    flex-shrink: 0;
+    padding-right: 15px;
+    padding-left: 15px;
 }

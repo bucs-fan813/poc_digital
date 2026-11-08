@@ -48,9 +48,10 @@ $(document).ready(function () {
 			PAGE SCROLL
     ========================================================*/
 
-    $('body').scrollspy({
-        target: '.navbar'
-    })
+    new bootstrap.ScrollSpy(document.body, {
+        target: '.navbar',
+        rootMargin: '0px 0px -25%'
+    });
 
     $(function () {
         $('a.page-scroll').on('click', function (event) {
