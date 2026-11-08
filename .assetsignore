@@ -1,0 +1,10 @@
+.git/
+.github/
+README.md
+.assetsignore
+assets/scss/
+wrangler.json
+wrangler.jsonc
+wrangler.toml
+node_modules/
+docs/
