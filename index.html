@@ -24,8 +24,8 @@
 
     <title>Welcome to POC | Digital</title>
     
-	<!-- reCaptcha v2 -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 
@@ -282,22 +282,23 @@
             		<a href="https://pocdigital.slack.com/" aria-label="POC Digital on Slack"><i class="fab fa-slack" aria-hidden="true"></i></a>&nbsp;
             		<a href="https://maps.app.goo.gl/sq6wC" aria-label="View POC Digital location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></a>&nbsp;            		
             	</h3>
-                    <form method="POST">
+                    <form id="contact-form" action="/api/contact" method="POST">
                         <div class="contact-field">
-                            <input type="text" class="form-control" id="name" placeholder="Name" required="required">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="100" autocomplete="name" aria-label="Name" placeholder="Name" required="required">
                         </div>
                         <div class="contact-field">
-                            <input type="email" class="form-control" id="email" placeholder="Email" required="required">
+                            <input type="email" class="form-control" id="email" name="email" maxlength="254" autocomplete="email" aria-label="Email" placeholder="Email" required="required">
                         </div>
                         <div class="contact-field">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
+                            <input type="text" class="form-control" id="subject" name="subject" maxlength="200" aria-label="Subject" placeholder="Subject" required="required">
                         </div>
                         <div class="contact-field">
-                            <textarea class="form-control" rows="6" placeholder="Message"></textarea>
+                            <textarea id="message" name="message" class="form-control" rows="6" maxlength="5000" aria-label="Message" placeholder="Message" required></textarea>
                         </div>
                         <div class="contact-field">
-                        	<div class="justify-content-center g-recaptcha" data-sitekey="6LcBYpAUAAAAAFPzmAR4mpuaoDWNlExlFKc_tm-w"></div>
+                        	<div class="cf-turnstile" data-sitekey="0x4AAAAAAF5NsJftdPxYowEF" data-action="contact"></div>
                         </div>
+                        <p id="contact-status" role="status" aria-live="polite"></p>
                         <button type="submit" class="btn btn-primary w-100">Submit</button>
                     </form>
                 </div>

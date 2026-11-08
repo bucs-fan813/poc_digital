@@ -8,3 +8,10 @@ wrangler.jsonc
 wrangler.toml
 node_modules/
 docs/
+
+src/
+tests/
+.gitignore
+.dev.vars*
+.env*
+package*.json
