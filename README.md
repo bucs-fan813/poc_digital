@@ -95,7 +95,7 @@ There is no repository-managed automated test suite or asset compilation pipelin
 
 Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Bootstrap and remaining plugins, then script.js.
 
-When changing a CDN version or file, update its integrity hash to match the exact response bytes and test page interactions. Lightbox images and Font Awesome fonts resolve relative to their CDN stylesheets. Google fonts, Analytics, and reCAPTCHA remain external services.
+When changing a CDN version or file, update its integrity hash to match the exact response bytes and test page interactions. Lightbox images and Font Awesome fonts resolve relative to their CDN stylesheets. Google Fonts and reCAPTCHA remain external services. Cloudflare Web Analytics uses automatic installation on the production domain.
 
 Versions: Bootstrap 5.3.8, jQuery 4.0.0 (full build), jQuery Easing 1.4.1, Typed.js 2.1.0, Lightbox2 2.12.0, Font Awesome 5.15.4. Owl Carousel was unused and removed; partner filtering now uses a small function in script.js instead of MixItUp.
 
@@ -104,3 +104,9 @@ Bootstrap 5 uses its native Collapse and ScrollSpy APIs and data-bs attributes. 
 The jQuery 4 migration uses the full build because the site needs AJAX, animation, and queues. Keep the exact version and integrity hash together when updating it. Resize and submit handlers use .on(), and hero heights include explicit pixel units.
 
 Icons use Font Awesome Free 5.15.4 from cdnjs for service, navigation, contact, and social icons. Google Material Icons has been removed. Decorative icons are hidden from screen readers; icon-only contact links have accessible labels. The custom .service-icon class controls service icon sizing.
+
+## Web Analytics
+
+Cloudflare Web Analytics is enabled for `pocdigital.org` using automatic setup. Cloudflare injects its analytics beacon into eligible HTML responses on the proxied production domain; no tracking token or manual beacon script is stored in this repository. Google Analytics has been removed.
+
+View traffic under **Cloudflare > Observability > Analytics > Web analytics**. Allow time for visits to appear after enabling analytics. Local previews and branch URLs are not configured for this site's analytics. Keep automatic setup enabled, avoid adding a second beacon, and do not add a `Cache-Control: no-transform` response header because it prevents automatic injection.
