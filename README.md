@@ -93,10 +93,10 @@ There is no repository-managed automated test suite or asset compilation pipelin
 
 ## CDN dependencies
 
-Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Popper, Bootstrap and remaining plugins, then script.js.
+Third-party CSS and JavaScript are loaded from https://cdnjs.cloudflare.com with pinned versions and SHA-384 integrity checks in index.html. Custom main.css and script.js stay in this repository and are delivered by Cloudflare with the website. Keep script order intact: jQuery, Bootstrap and remaining plugins, then script.js.
 
 When changing a CDN version or file, update its integrity hash to match the exact response bytes and test page interactions. Lightbox images and Font Awesome fonts resolve relative to their CDN stylesheets. Google fonts, Analytics, and reCAPTCHA remain external services.
 
-Versions: Bootstrap 4.6.2, jQuery 3.7.1 (full build), Popper 1.16.1, jQuery Easing 1.4.1, Typed.js 2.1.0, Lightbox2 2.12.0, Font Awesome 5.15.4. Owl Carousel was unused and removed; partner filtering now uses a small function in script.js instead of MixItUp.
+Versions: Bootstrap 5.3.8, jQuery 3.7.1 (full build), jQuery Easing 1.4.1, Typed.js 2.1.0, Lightbox2 2.12.0, Font Awesome 5.15.4. Owl Carousel was unused and removed; partner filtering now uses a small function in script.js instead of MixItUp.
 
-Bootstrap 4.6.2 is the final Bootstrap 4 release and is end of life. Bootstrap 5 is a separate markup and layout migration, not a drop-in dependency bump. jQuery stays on 3.x for Bootstrap 4 compatibility, Font Awesome stays on 5.x to preserve the current icon classes, and Typed.js uses the MIT-licensed 2.1.0 release with its constructor API. See docs/UPGRADE_VALIDATION.md for verification and remaining limits.
+Bootstrap 5 uses its native Collapse and ScrollSpy APIs and data-bs attributes. The standalone Popper 1 script has been removed because the site does not use dropdowns, tooltips, or popovers. jQuery remains for custom page effects, partner filtering, contact AJAX, and Lightbox; Bootstrap itself no longer depends on it. Font Awesome stays on 5.x to preserve icon names, and Typed.js stays on the MIT-licensed 2.1.0 release.
