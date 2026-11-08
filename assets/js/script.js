@@ -25,9 +25,9 @@ $(document).ready(function () {
     ========================================================*/
 
     var slideHeight = $(window).height();
-    $('.full-screen').css('height', slideHeight);
-    $(window).resize(function () {
-        $('.full-screen').css('height', $(window).height());
+    $('.full-screen').css('height', slideHeight + 'px');
+    $(window).on('resize', function () {
+        $('.full-screen').css('height', $(window).height() + 'px');
     });
 
 
@@ -99,7 +99,7 @@ $(document).ready(function () {
 			Contact Form
 	========================================================*/
 
-    $("form:first").submit(function() {
+    $("form:first").on("submit", function() {
     	  var url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
     	  var form_name       = $("input#name").val();
     	  var form_email       = $("input#email").val();
