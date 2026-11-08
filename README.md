@@ -102,3 +102,5 @@ Versions: Bootstrap 5.3.8, jQuery 4.0.0 (full build), jQuery Easing 1.4.1, Typed
 Bootstrap 5 uses its native Collapse and ScrollSpy APIs and data-bs attributes. The standalone Popper 1 script has been removed because the site does not use dropdowns, tooltips, or popovers. jQuery remains for custom page effects, partner filtering, contact AJAX, and Lightbox; Bootstrap itself no longer depends on it. Font Awesome stays on 5.x to preserve icon names, and Typed.js stays on the MIT-licensed 2.1.0 release.
 
 The jQuery 4 migration uses the full build because the site needs AJAX, animation, and queues. Keep the exact version and integrity hash together when updating it. Resize and submit handlers use .on(), and hero heights include explicit pixel units.
+
+Icons use Font Awesome Free 5.15.4 from cdnjs for service, navigation, contact, and social icons. Google Material Icons has been removed. Decorative icons are hidden from screen readers; icon-only contact links have accessible labels. The custom .service-icon class controls service icon sizing.
