@@ -9,6 +9,13 @@
     ]
   },
   "previews": {},
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
   "main": "src/worker.mjs",
   "vars": {
     "TURNSTILE_HOSTNAMES": "pocdigital.org,www.pocdigital.org",
