@@ -39,7 +39,7 @@ The project uses **Workers Static Assets**, not Cloudflare Pages.
 | Build command | `exit 0` |
 | Deploy command | `npx wrangler deploy --name poc-digital --assets . --compatibility-date 2026-11-04` |
 | Root directory | Repository root (default) |
-| Preview builds | Disabled in the initial setup |
+| Preview builds | Enabled for all nonproduction branches |
 | Cloudflare Access protection | Disabled for the public website |
 | Environment variables | None required for static hosting |
 
@@ -48,6 +48,24 @@ Pushes to the connected production branch trigger deployment. Check Cloudflare's
 The compatibility date pins runtime behavior and does not need to change for each content update.
 
 See [Cloudflare build settings](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
+
+## Branch previews
+
+The root `wrangler.json` defines the Worker name, compatibility date, static asset directory, and empty Preview settings.
+
+Set the Cloudflare **Preview command** to:
+
+```sh
+npx wrangler preview --worker-name poc-digital
+```
+
+Do not pass `--assets` or `--compatibility-date` to `wrangler preview`; these settings come from the configuration file. The `--name` flag sets the Preview name, not the Worker name; leave it unset so each Git branch gets its own Preview.
+
+Keep the production branch set to `main`. With preview builds enabled, pushes to other branches (including `dev`) create or update their previews without deploying to production. After changing the command, retry the preview build for a commit that includes `wrangler.json`.
+
+Production can continue using the existing deploy command above, or `npx wrangler deploy` once the configuration is merged into main. The contact form still uses the existing AWS endpoint, so preview submissions can send real email.
+
+[Cloudflare Preview configuration](https://developers.cloudflare.com/workers/previews/configuration/)
 
 ## Domain and DNS
 
