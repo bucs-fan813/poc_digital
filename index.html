@@ -17,30 +17,19 @@
 
     <!-- CSS FILES -->
     <!-- Third-party libraries use pinned cdnjs versions; custom assets stay local. -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.12.0/css/lightbox.min.css" rel="stylesheet" integrity="sha384-0iBOLlC4W2Uc+w+/u6CeHbY6xhhRBfVwrN/Z+b1oaQchS1g+oN8fUfS3s78y3zZa" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link href="assets/css/main.css" rel="stylesheet">
 
     <title>Welcome to POC | Digital</title>
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134128842-1"></script>
-	
-	<!-- reCaptcha v2 -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-134128842-1');
-</script>
 </head>
 
-<body data-spy="scroll" data-target=".navbar">
+<body>
 
     <!-- PRELOADER
 	============================================= -->
@@ -56,9 +45,9 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">POC<span> | </span><strong>Digital</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><i class="material-icons">menu</i></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars" aria-hidden="true"></i></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav navbar-nav ml-auto">
+                <ul class="nav navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#home">Home</a>
                     </li>
@@ -165,7 +154,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">cloud</i>
+                        <i class="fas fa-cloud service-icon" aria-hidden="true"></i>
                         <h4>Cloud</h4>
                         <p>We provide the cloud experts you need to design and implement your cloud strategy so you aren't left behind.
                         We help your organization take an enterprise approach to setting up cloud environments and realizing cost savings.
@@ -174,7 +163,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">code</i>
+                        <i class="fas fa-code service-icon" aria-hidden="true"></i>
                         <h4>Development</h4>
                         <p>We work with you at every stage in the planning and development with lifecycle-wide traceability. 
                         You can expect a formal approach using an AGILE methodology with full documentation no matter what solution - big or small.</p>
@@ -182,7 +171,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">sync</i>
+                        <i class="fas fa-sync service-icon" aria-hidden="true"></i>
                         <h4>DEVOPS</h4>
                         <p>We have a philosophical approach to improve your project and organization by automating processes, 
                         completing work in smaller bytes (pun intended) and eliminating bottlenecks in both personnel and technical resources.</p>
@@ -190,7 +179,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">group_add</i>
+                        <i class="fas fa-user-plus service-icon" aria-hidden="true"></i>
                         <h4>Staff Augmentation</h4>
                         <p>We provide augmented and surge support to meet your critical deadlines. Our professionals have been in the software & IT industry 
                         for many years and have experience in a wide variety of team structures. We are here to provide a seamless fit to your needs.</p>
@@ -198,7 +187,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">compare_arrows</i>
+                        <i class="fas fa-exchange-alt service-icon" aria-hidden="true"></i>
                         <h4>Migration</h4>
                         <p>We support your organization's journey to the Cloud by developing a roadmap that reflects your priorities 
                         and migrates legacy architecture to the Cloud to provide the flexibility, scalability and performance 
@@ -207,7 +196,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="service-box">
-                        <i class="material-icons">security</i>
+                        <i class="fas fa-shield-alt service-icon" aria-hidden="true"></i>
                         <h4>Security</h4>
                         <p>We adhere to NIST, FEDRAMP, CIS and ISO standards to secure and monitor cloud solutions across multiple-level security domains. 
                         We expedite your A&A process with compliant cloud environments in commercial and unclassified NIPR to classified SIPR and JWICS.</p>
@@ -286,30 +275,31 @@
 
                 <div class="col-md-6">
                 <h3>
-                    <a href="tel:1.253.254.5798"><i class="fas fa-phone"></i></a>&nbsp; 
-            		<a href="mailto:john@pocdigital.com"><i class="fas fa-envelope"></i></a>&nbsp; 
-            		<a href="https://www.facebook.com/pocdigital/"><i class="fab fa-facebook"></i></a>&nbsp; 
-            		<a href="https://www.instagram.com/pocdigital/"><i class="fab fa-instagram"></i></a>&nbsp;
-            		<a href="https://pocdigital.slack.com/"><i class="fab fa-slack"></i></a>&nbsp;
-            		<a href="https://maps.app.goo.gl/sq6wC"><i class="fas fa-map-marker-alt"></i></a>&nbsp;            		
+                    <a href="tel:1.253.254.5798" aria-label="Call POC Digital"><i class="fas fa-phone" aria-hidden="true"></i></a>&nbsp; 
+            		<a href="mailto:john@pocdigital.com" aria-label="Email POC Digital"><i class="fas fa-envelope" aria-hidden="true"></i></a>&nbsp; 
+            		<a href="https://www.facebook.com/pocdigital/" aria-label="POC Digital on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>&nbsp; 
+            		<a href="https://www.instagram.com/pocdigital/" aria-label="POC Digital on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>&nbsp;
+            		<a href="https://pocdigital.slack.com/" aria-label="POC Digital on Slack"><i class="fab fa-slack" aria-hidden="true"></i></a>&nbsp;
+            		<a href="https://maps.app.goo.gl/sq6wC" aria-label="View POC Digital location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></a>&nbsp;            		
             	</h3>
-                    <form method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Name" required="required">
+                    <form id="contact-form" action="/api/contact" method="POST">
+                        <div class="contact-field">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="100" autocomplete="name" aria-label="Name" placeholder="Name" required="required">
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Email" required="required">
+                        <div class="contact-field">
+                            <input type="email" class="form-control" id="email" name="email" maxlength="254" autocomplete="email" aria-label="Email" placeholder="Email" required="required">
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="subject" placeholder="Subject" required="required">
+                        <div class="contact-field">
+                            <input type="text" class="form-control" id="subject" name="subject" maxlength="200" aria-label="Subject" placeholder="Subject" required="required">
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="6" placeholder="Message"></textarea>
+                        <div class="contact-field">
+                            <textarea id="message" name="message" class="form-control" rows="6" maxlength="5000" aria-label="Message" placeholder="Message" required></textarea>
                         </div>
-                        <div class="form-group">
-                        	<div class="justify-content-center g-recaptcha" data-sitekey="6LcBYpAUAAAAAFPzmAR4mpuaoDWNlExlFKc_tm-w"></div>
+                        <div class="contact-field">
+                        	<div class="cf-turnstile" data-sitekey="0x4AAAAAAF5NsJftdPxYowEF" data-action="contact"></div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <p id="contact-status" role="status" aria-live="polite"></p>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
                     </form>
                 </div>
 
@@ -323,19 +313,18 @@
     <footer>
         <div class="container">
 			<div class="d-flex flex-row text-nowrap" style="font-size:1.6vw;">
-            	<div class="col-md-3 col-sm-1 text-left">POC <span>|</span> <strong>Digital</strong></div>
+                <div class="col-md-3 col-sm-1 text-start">POC <span>|</span> <strong>Digital</strong></div>
             	<div class="col-md-3 col-sm-1">DUNS: 116921611</div>
             	<div class="col-md-3 col-sm-1">CAGE: 87V14</div>
-            	<div class="col-md-3 col-sm-1 text-right"><a href="mailto:john@pocdigital.com">john@pocdigital.org</a></div>
+                <div class="col-md-3 col-sm-1 text-end"><a href="mailto:john@pocdigital.com">john@pocdigital.org</a></div>
         	</div>
         </div>
     </footer>
     <!-- Third-party libraries use pinned cdnjs versions; custom assets stay local. -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!-- jQuery supports site effects and Lightbox; Bootstrap 5 uses its native API. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" integrity="sha384-fgGyf7Mo7DURSOMnOy7ed+dkq5Job205Gnzu6QIg0BOHKaqt4D76Dt8VlDCzcMHV" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha384-leGYpHE9Tc4N9OwRd98xg6YFpB9shlc/RkilpFi0ljr3QD4tFoFptZvgnnzzwG4Q" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js" integrity="sha384-ui1KLq9LCz8ZQ/WrkOLeNYPlfVtIe6eL6YvVWFagvgCBkVnTOxTVddOwNbrqZ9H7" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.12.0/js/lightbox.min.js" integrity="sha384-ozVfEl7G9fvG33Be/P4bZ/CFk4T6TaqBQlD7olDgT1iyzAJEO6YQ7CwZp4OATxnH" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
