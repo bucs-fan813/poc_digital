@@ -9,8 +9,17 @@
     ]
   },
   "previews": {},
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  },
   "main": "src/worker.mjs",
   "vars": {
-    "TURNSTILE_HOSTNAMES": "pocdigital.org,www.pocdigital.org"
+    "TURNSTILE_HOSTNAMES": "pocdigital.org,www.pocdigital.org",
+    "CONTACT_TO": "john@pocdigital.org",
+    "CONTACT_FROM": "no-reply@pocdigital.org"
   }
 }
