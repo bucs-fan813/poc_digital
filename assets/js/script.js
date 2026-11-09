@@ -99,43 +99,40 @@ $(document).ready(function () {
 			Contact Form
 	========================================================*/
 
-    $("form:first").on("submit", function() {
-    	  var url      = "https://xyzqduxjtg.execute-api.us-east-1.amazonaws.com/Prod/send";
-    	  var form_name       = $("input#name").val();
-    	  var form_email       = $("input#email").val();
-    	  var form_subject  = $("input#subject").val();
-    	  var form_message     = 'Name: ' + form_name + '\n';
-    	  form_message += 'Email: ' + form_email + '\n';
-    	  form_message += 'Message: ' + $("textarea:first").val();
-
-    	  var data = {
-    		name	: form_name,
-    	    from   : form_email, 
-    	    subject : form_subject,
-    	    message    : form_message
-    	  }
-
-    	  $.ajax({
-    	         type: "POST",
-    	         url : url,
-    	         dataType: "json",
-                 crossDomain: true,
-    	         contentType: "application/json; charset=utf-8",
-    	         data: JSON.stringify(data),
-
-    	         
-    	         success: function () {
-    	           // clear form and show a success message
-    	           alert("Successful");
-    	          // document.getElementById("contact-form").reset();
-    	           location.reload();
-    	         },
-    	         error: function () {
-    	           // show an error message
-    	           alert("Unsuccessful");
-    	         }});
-
-    		  return false;
-    });    
-
+    $("#contact-form").on("submit", async function(event) {
+        event.preventDefault();
+        const form = this;
+        const button = form.querySelector('button[type="submit"]');
+        const status = document.getElementById("contact-status");
+        if (button.disabled || !form.reportValidity()) return;
+        const token = new FormData(form).get("cf-turnstile-response");
+        if (!token) {
+            status.textContent = "Please complete the security check before submitting.";
+            return;
+        }
+        button.disabled = true;
+        status.textContent = "Sending your message…";
+        try {
+            const response = await fetch(form.action, {
+                method: "POST", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: form.elements.name.value, email: form.elements.email.value,
+                    subject: form.elements.subject.value, message: form.elements.message.value,
+                    "cf-turnstile-response": token
+                }),
+                signal: AbortSignal.timeout(20000)
+            });
+            const result = await response.json();
+            if (!response.ok || result.success !== true) throw new Error(result.message || "Unable to send your message.");
+            form.reset();
+            status.textContent = result.message;
+        } catch (error) {
+            status.textContent = error.name === "TimeoutError"
+                ? "The request timed out. Delivery is uncertain; please email us before resending."
+                : (error.message || "Unable to send your message. Please try again.");
+        } finally {
+            button.disabled = false;
+            if (window.turnstile) window.turnstile.reset();
+        }
+    });
 });
