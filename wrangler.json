@@ -21,5 +21,9 @@
     "TURNSTILE_HOSTNAMES": "pocdigital.org,www.pocdigital.org",
     "CONTACT_TO": "john@pocdigital.org",
     "CONTACT_FROM": "no-reply@pocdigital.org"
-  }
+  },
+  "send_email": [
+    {
+      "name": "CONTACT_EMAIL"
+    }
 }
