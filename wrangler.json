@@ -20,7 +20,7 @@
   "vars": {
     "TURNSTILE_HOSTNAMES": "pocdigital.org,www.pocdigital.org",
     "CONTACT_TO": "john@pocdigital.org",
-    "CONTACT_FROM": "no-reply@pocdigital.org"
+    "CONTACT_FROM": "no-reply@forms.pocdigital.org"
   },
   "send_email": [
     {
